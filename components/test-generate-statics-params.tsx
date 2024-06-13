@@ -9,10 +9,10 @@ export default async function TestGenerateStaticParams({
 }: TestGenerateStaticParamsProps) {
   const isProd = process.env.NODE_ENV === 'production';
   const domain = isProd
-    ? 'https://app-router-api.vercel.app'
+    ? 'https://partial-pre-rendering-chi.vercel.app/'
     : 'http://localhost:3000';
 
-  const product = await fetch(`http://localhost:3000/api/cnb/${language}`);
+  const product = await fetch(`${domain}/api/cnb/${language}`);
   const data = await product.json();
   const message = data.message;
   console.log(message);
